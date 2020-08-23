@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Registry
 from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
 def index(request):
    
@@ -20,3 +21,4 @@ def index(request):
 class RegistryCreate(CreateView):
     model = Registry
     fields = '__all__'
+    success_url = reverse_lazy('index')
