@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    {% load static %}
+    
+    
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+</head>
+
+<body>
+  {% load static %}
+  <nav  id="main-navbar">
+      <div class="container">
+          <a style="border-right: 7px solid #ecc8c8;" href="{%url 'index'%}">
+              <img src="{% static 'logo.png' %}" height="30"/>
+          </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <button href="{%url 'new_record'%}">Crear nuevo registro</button>
+    <p class="lead"><h2>observa el detalle de los registros {{num_records}} ingresados hasta la fecha</h2></p>
+    <ul>
+      {% for record in all_records %}
+      <li>
+        <p ><strong>Regitro {{ record.id }}: </strong> {{ record.last_name }} {{ record.name }}, {{ record.country }} </p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
