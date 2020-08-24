@@ -24,6 +24,3 @@ class RegistryCreate(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('index')
 
-"""def record_new(request):
-    form = RegistryForm()
-    return render(request, 'edit.html', {'form': form})"""

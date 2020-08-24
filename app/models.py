@@ -1,5 +1,4 @@
 from django.db import models
-from django_countries.fields import CountryField
 from smart_selects.db_fields import ChainedForeignKey
 
 class Country(models.Model):
@@ -35,7 +34,6 @@ class City(models.Model):
 class Registry (models.Model):
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    #country = CountryField(blank_label='(select country)')
     country = models.ForeignKey(Country, on_delete=models.SET_NULL,
         null=True, verbose_name=('Country'))
     
