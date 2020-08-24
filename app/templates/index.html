@@ -23,12 +23,12 @@
 
   <div class="container">
     <button >  <a  href="{%url 'new_record' %}">Crear nuevo registro</a> </button>
-    <p class="lead"><h2>observa el detalle de los registros {{num_records}} ingresados hasta la fecha</h2></p>
+    <p class="lead"><h2>observa el detalle de los  {{num_records}} registros ingresados hasta la fecha</h2></p>
     <ul>
       {% for record in all_records %}
       <li>
-        <p ><strong>name: </strong> {{ record.last_name }} {{ record.name }}
-          ,País {{ record.country.name}}, Deártamento {{ record.department.name}}, Ciudad {{ record.city.name}} </p>
+        <p ><strong>Nombre: </strong> {{ record.last_name }} {{ record.name }}
+          ,País {{ record.country.name}}, Departamento {{ record.department.name}}, Ciudad {{ record.city.name}} </p>
       </li>
       {% endfor %}
     </ul>

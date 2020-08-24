@@ -13,8 +13,8 @@ Reemplazar el nombre de la base de datos en la línea 62 del archivo "settings.p
 
 * Aplicar las migraciones con los comandos:
 
-        * `python manage.py makemigrations`
-        - `python manage.py migrate`
+    * `python manage.py makemigrations`
+    * `python manage.py migrate`
 
 * Crear un super usuario, para ingresar al admin y crear las opciones anidadas, con el comando:
 
