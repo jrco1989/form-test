@@ -1,14 +1,21 @@
 
 from django.db import models
 from django_countries.fields import CountryField
+from smart_selects.db_fields import ChainedForeignKey
 
 class Country(models.Model):
     name = models.CharField(max_length=100, unique=True)
+    
+    def __str__(self):
+        return self.name
 
 class Department(models.Model):
     country = models.ForeignKey(Country,on_delete=models.SET_NULL,
         null=True, verbose_name=('Country'))
     name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
 
 class City(models.Model):
     name = models.CharField(max_length=100)
@@ -17,6 +24,9 @@ class City(models.Model):
     department = models.ForeignKey(Department, on_delete=models.SET_NULL,
         null=True,
         verbose_name=("Department"))
+    
+    def __str__(self):
+        return self.name
 
 class Registry (models.Model):
     name = models.CharField(max_length=100)
@@ -24,7 +34,16 @@ class Registry (models.Model):
     #country = CountryField(blank_label='(select country)')
     country = models.ForeignKey(Country, on_delete=models.SET_NULL,
         null=True, verbose_name=('Country'))
-    department = models.ForeignKey(Department, on_delete=models.SET_NULL,
-        null=True, verbose_name=("Department"))
-
     
+    department = ChainedForeignKey(
+        Department, 
+        chained_field="country",
+        chained_model_field="country", 
+        show_all=False, 
+        auto_choose=True,
+        default ="",
+        blank=True
+    )
+    
+    def __str__(self):
+        return self.name

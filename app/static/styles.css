@@ -1,4 +1,10 @@
 #main-navbar {
-    background: #fff;
+    background: rgb(43, 2, 21);
     border-bottom: 1px solid rgba(0,0,0,.0975);
+    
+}
+body {
+    padding-left: 15px;
+    background: rgb(116, 84, 84);
+    
 }

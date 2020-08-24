@@ -6,4 +6,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(route='',view = include('app.urls')),
+    path('/', include('smart_selects.urls')),
 ]

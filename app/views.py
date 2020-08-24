@@ -3,6 +3,7 @@ from .models import Registry
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
+
 def index(request):
    
     num_records=Registry.objects.all().count()
@@ -22,3 +23,7 @@ class RegistryCreate(CreateView):
     model = Registry
     fields = '__all__'
     success_url = reverse_lazy('index')
+
+"""def record_new(request):
+    form = RegistryForm()
+    return render(request, 'edit.html', {'form': form})"""
