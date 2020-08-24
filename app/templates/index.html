@@ -27,8 +27,8 @@
     <ul>
       {% for record in all_records %}
       <li>
-        <p ><strong>Regitro: </strong> {{ record.last_name }} {{ record.name }}
-          , {{ record.country.name }} </p>
+        <p ><strong>name: </strong> {{ record.last_name }} {{ record.name }}
+          ,País {{ record.country.name}}, Deártamento {{ record.department.name}}, Ciudad {{ record.city.name}} </p>
       </li>
       {% endfor %}
     </ul>
