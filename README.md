@@ -2,12 +2,12 @@
 
 Ejemplo de selectores encadenados para la creación de registros por medio de un formulario 
 
-##Instalación:
+## Instalación:
 
     *-*Ejecutar el siguiente comando para instalar las librerias necesarias:
         `pip install -r requirements.txt`
 
-##Configuración:
+## Configuración:
 
     * Reemplazar el nombre de la base de datos en la línea 62 del archivo "settings.py"  por el nombre de la base de datos de Posgrest creada localmente (el proycto está configurado para recibir una base de datos de Postgres ). 
 
