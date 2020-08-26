@@ -1,10 +1,11 @@
-#main-navbar {
+nav {
     background: rgb(121, 2, 18);
     border-bottom: 1px solid rgba(0,0,0,.0975);
+    
     
 }
 body {
     padding-left: 15px;
-    background: rgb(223, 215, 215);
-    
-}
+    background: #dbf8fc;
+    background-attachment:fixed;
+    }

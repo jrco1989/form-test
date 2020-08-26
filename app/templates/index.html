@@ -1,38 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    {% load static %}
-    
-    
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-</head>
+{% extends "base.html" %}
 
-<body>
-  
-  <nav  id="main-navbar">
-    <a href="{% url 'index' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-      <div class="container">
-          <a style="border-right: 7px solid #ecc8c8;" href="{%url 'index'%}">
-              <img src="{% static 'logo.png' %}" height="30"/>
-          </a>
-    </div>
-  </nav>
-
-  <div class="container">
-    <button >  <a  href="{%url 'new_record' %}">Crear nuevo registro</a> </button>
-    <p class="lead"><h2>observa el detalle de los  {{num_records}} registros ingresados hasta la fecha</h2></p>
-    <ul>
-      {% for record in all_records %}
-      <li>
-        <p ><strong>Nombre: </strong> {{ record.last_name }} {{ record.name }}
-          ,País {{ record.country.name}}, Departamento {{ record.department.name}}, Ciudad {{ record.city.name}} </p>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</body>
-<!--<script src= "{% static 'jquery.chained.min.js' %}"></script>-->
-</html>
+{%block container%}
+  <a class="btn btn-primary btn-lg btn-block" href="{%url 'new_record' %}">Crear nuevo registro</a>
+  <p class="lead"><h2>observa el detalle de los  {{num_records}} registros ingresados hasta la fecha</h2></p>
+  <ul>
+    {% for record in all_records %}
+    <li>
+      <p ><strong>Name: </strong> {{ record.last_name }} {{ record.name }}, 
+        <strong>Country:</strong> {{ record.country.name}},
+        <strong>Department:</strong> {{ record.department.name}},
+        <strong>City</strong> {{ record.city.name}} </p>
+    </li>
+    {% endfor %}
+  </ul>
+{%endblock%}
